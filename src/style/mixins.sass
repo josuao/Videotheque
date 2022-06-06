@@ -1,0 +1,31 @@
+//Position
+@mixin flex ($horizontal, $vertical, $wrap)
+    display: flex
+    justify-content: $horizontal
+    align-items: $vertical
+    flex-wrap: $wrap
+
+// bouton
+@mixin btn ($color, $background, $padding, $radius)
+    color: $color
+    background: $background
+    padding: $padding
+    border-radius: $radius
+    font-size: 16px
+    border: none
+    cursor: pointer
+    &::first-letter
+        text-transform: uppercase
+
+// text    
+@mixin text ($fontsize, $weight, $color)
+    font-size: $fontsize
+    font-weight: $weight
+    color: $color
+
+//Responsive 
+@mixin responsive($screen) 
+   @media (max-width: $screen+'px') 
+       @content
+   
+

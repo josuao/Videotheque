@@ -1,0 +1,244 @@
+body
+    margin: 0
+    padding: 0
+    background-color: $back_color
+    color: $primary_text_color
+
+    a
+        text-decoration: none
+        color: initial
+    
+
+    #app
+        width: 100%
+        min-height: 100vh
+        font-family: $primary_font
+        font-size: $normalfontsize
+        padding: 40px 20px 40px 20px
+        max-width: $container
+        margin: auto
+        box-sizing: border-box
+
+        .title
+            font-size: 36px
+            font-weight: $bold
+            text-align: center
+            text-transform: uppercase
+            margin-bottom: 80px
+        
+
+        .actionBar
+            @include flex(space-between, center, wrap)
+            margin: 82px 0
+
+        .searchbar
+            input
+                width: 500px
+                max-width: 100%
+                padding: 8px 16px
+                    
+        input[type="text"]
+            background-color: $white
+            border-radius: $radius
+            border: none
+        
+
+        .primary_button
+            @include btn($primary_text_color, $primary_color, 10px, $radius)
+        
+        .second_button
+            @include btn($white, $second_color, 10px, $radius)
+        
+        .third_button
+            @include btn($primary_text_color, $third_color, 10px, $radius)
+        
+        // liste des miniatures de films
+        .filmlist
+            @include flex(space-between, center, wrap)
+            @include responsive(820)
+                justify-content: center
+
+            .filmcard
+                background-color: $white
+                border-radius: $radius
+                padding: 20px
+                width: 380px
+                height: 230px
+                box-sizing: border-box
+                margin-bottom: 40px
+
+                .filmcardcontent
+                    @include flex(space-between, center, nowrap)
+
+                    .flimcardimg
+                        width: 86px
+                        height: 129px
+                        overflow: hidden
+    
+                        .imgcard
+                            max-width: 100%
+                            
+                    
+                    .filmcardtext
+                        width: 234px
+                        height: 129px
+                        @include flex(flex-start, stretch, wrap)
+
+                        div
+                            width: 100%
+                        
+
+                        .filmcardtitle
+                            @include text(20px, $bold, $primary_text_color)
+                        
+                        .filmcardyear
+                            @include text($normalfontsize, $light, $primary_text_color)
+                        
+                        .filmcardexcerpt
+                            height: 70px
+                            width: 234px
+                            overflow: hidden
+                            display: -webkit-box
+                            -webkit-line-clamp: 4
+                            -webkit-box-orient: vertical
+             
+                .filmcardaction
+                    @include flex(space-between, center, nowrap)
+                    width: 275px
+                    margin:22px auto 0 auto
+                
+        // Page du film seul
+        .filmsingle
+            .retour
+                margin-bottom: 40px
+
+            .filmDetail
+                width: 900px
+                margin:auto
+                background-color: $white
+                @include flex(space-between, center, nowrap)
+                border-radius: $radius
+                padding: 20px
+
+                .filmDetailimg
+                    width: 282px
+                    height: 425px
+                    overflow: hidden
+    
+                .imgFilmSingle
+                    max-width: 100%
+                        
+                
+                .filmDetailtext
+                    width: 558px
+                    height: 428px
+                    @include flex(space-between, stretch, wrap)
+                    
+
+                    div
+                        width: 100%
+                        @include text(18px, $medium, $primary_text_color)
+                    
+                    .slogan
+                        @include text(20px, 600, $primary_text_color)
+                        font-style: italic
+                    
+                    .year
+                        @include text(16px, $light, $primary_text_color)
+                    
+        //Modale
+        .modale
+            background-color: rgba(0,0,0,.9)
+            position: fixed
+            top: 0
+            left:0
+            right: 0
+            bottom:0
+            @include flex(center, center, nowrap)
+
+            form
+                width: 588px
+                height: 758px
+                max-width: 100%
+                background-color: $back_dark_color
+                padding: 40px
+                box-sizing: border-box
+                border-radius: $radius
+
+                @include responsive(820)
+                height: auto
+
+                label
+                    @include text($normalfontsize, $bold, $primary_text_color)
+                    margin-bottom:5px
+                
+                input, textarea
+                    display: block
+                    padding:4px 10px
+                    width: 100%
+                    box-sizing: border-box
+                    margin:5px 0 20px 0
+                
+                textarea
+                    height: 127px
+                    border: none
+                    border-radius: $radius
+                
+                .flexform3
+                    @include flex(space-between, center, nowrap)
+
+                    @include responsive(820)
+                        flex-wrap: wrap
+
+                    input
+                        width:162px
+                    
+                
+                .actionbar
+                    @include flex(space-between, center, nowrap)
+
+                    button
+                        width: 249px
+
+        // Modale d'erreur         
+        .modaleMessage
+            background-color: rgba(0,0,0,.9)
+            position: fixed
+            top: 0
+            left:0
+            right: 0
+            bottom:0
+            @include flex(center, center, nowrap)
+
+            .encartModale
+                width: 560px
+                height: 317px
+                background: $white
+                @include flex(center, center, wrap)
+                position: relative
+                .close
+                    position: absolute
+                    top: 10px
+                    right: 10px
+                    cursor: pointer
+                .titre
+                    @include text(22px, $bold, $modaleAlert)
+                    text-transform: uppercase
+                    text-align: center
+                    width: 100%
+                    margin-top: 70px
+                .message 
+                     @include text($normalfontsize, $medium, $primary_text_color)
+                     width: 100%
+                     text-align: center
+
+                button
+                     @include btn($white, $modaleAlert, 10px, 5px)
+                     margin: 40px auto
+
+
+
+                
+            
+        
+       
