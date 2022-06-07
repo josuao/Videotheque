@@ -38,14 +38,17 @@
             }
         },
         created() {
+            // Active l'action du store qui va rechercher sur la bdd les films
             this.$store.dispatch('fetchFilm')
         },
         computed: {
 
+            //Va chercher dans le store l'objet film
             films() {
                 return this.$store.getters.getFilms
             },
             search() {
+            // filtre les données par rapport a la searchbar
                 return this.$store.getters.getFilms.filter(film => {
                     let searchText = film.titre + '; ' + film.annee
                     return searchText.toLowerCase().includes(this.$store.getters.getSearch.toLowerCase())
@@ -53,11 +56,13 @@
             }
         },
         methods: {
+            //bouton edition 
             EditFilm: function (e)  {
                 this.$store.commit('MODALON',true)
                 this.$store.commit('MODALFOREDITING',true)
                 this.$store.commit('SETCURRENTFILMTITLE', e)
             },
+            // bouton annulation
             DeleteFilm: function(e){
                 if (confirm('Etes-vous sur de vouloir supprimer ' + e + ' ?')){
                     let i = 0
@@ -71,12 +76,12 @@
                     }
                    
                    })
-                }
-                else{
-                    console.log('annulé')
+                }else{
+                    // si refus d'annulation 
+                    this.$store.commit('MESSAGEMODALON', true)
+                    this.$store.commit('MESSAGE', "Le film n'a pas été supprimé")
                 }
             }
-
         }
     }
 </script>
