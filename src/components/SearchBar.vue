@@ -13,6 +13,7 @@ export default {
         }
     },
     methods: {
+        // on stock dans le store le mot de la recherche
         updateSearch (e) {
              this.$store.commit('SEARCHTEXT', e.target.value)
         }

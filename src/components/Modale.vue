@@ -59,7 +59,7 @@
             }
         },
         mounted() {
-            // ajouter a input le contenue du film exisant pour edition
+            // ajouter a input le contenu du film exisant pour edition
             if (this.$store.state.modalForEditing) {
                 const currentFilm = this.$store.getters.getCurrentFilmTitle
                 const theFilm = this.$store.getters.getFilms.find(element => element.titre === currentFilm)
@@ -118,7 +118,7 @@
                 }
 
             },
-            // on prepare un paquet  verifié à envoyer à la bdd pour l'objet film
+            // on prepare un paquet verifié à envoyer à la bdd pour l'objet film
             InFilmPackage() {
                 this.VerifyYear()
                 if (this.yearVerify) {
