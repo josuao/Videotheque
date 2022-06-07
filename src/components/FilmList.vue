@@ -1,6 +1,5 @@
 <template>
     <div class="filmlist">
-        <!-- <button @click="films" class="second_button">activ</button> -->
         <div class="filmcard" v-for="film in search" v-bind:key="film.index">
             <router-link :to="{name:'filmSingle', params : {titre : film.titre}}">
                 <div class="filmcardcontent">
@@ -68,9 +67,6 @@
                          if(object.titre == e ){
                         this.$store.commit('DELETEFILM',i)
                         axios.put(process.env.VUE_APP_BDDJSON, this.$store.getters.getFilms)
-                            .then(res => console.log(res))
-                            .catch(error => console.log(error))
-
                         }  
                     }
                    
